@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mann für alle Fälle - Radek Kocko</title>
+    <style>
+        :root {
+            --primary: #0f2c61;
+            --secondary: #d67000;
+            --bg-light: #f4f6f9;
+            --text-dark: #333;
+            --white: #ffffff;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, sans-serif; }
+        body { background-color: var(--bg-light); color: var(--text-dark); line-height: 1.6; }
+        
+        /* Pasek języków */
+        .lang-bar { background: var(--primary); padding: 10px; text-align: right; }
+        .lang-bar button { background: none; border: 1px solid var(--white); color: var(--white); padding: 5px 12px; margin-left: 5px; cursor: pointer; border-radius: 4px; font-weight: bold; font-size: 14px; }
+        .lang-bar button:hover { background: var(--secondary); border-color: var(--secondary); }
+
+        /* Menu */
+        header { background: var(--white); box-shadow: 0 2px 5px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
+        .nav-container { max-width: 1000px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; }
+        .logo { font-size: 18px; font-weight: bold; color: var(--primary); }
+        nav a { margin-left: 15px; text-decoration: none; color: var(--text-dark); font-weight: bold; font-size: 14px; }
+        nav a:hover { color: var(--secondary); }
+
+        /* Główna zawartość */
+        .container { max-width: 900px; margin: 30px auto; padding: 0 20px; }
+        
+        /* Hero i Zdjęcie profilowe */
+        .hero { background: var(--white); padding: 40px 20px; border-radius: 12px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-top: 5px solid var(--secondary); margin-bottom: 30px; }
+        .profile-img { width: 140px; height: 140px; border-radius: 50%; object-fit: cover; border: 4px solid var(--secondary); margin-bottom: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .hero h1 { color: var(--primary); font-size: 26px; margin-bottom: 10px; }
+        .hero h2 { color: var(--secondary); font-size: 16px; margin-bottom: 20px; }
+
+        /* Przyciski kontaktowe */
+        .contact-buttons { display: flex; justify-content: center; gap: 15px; margin: 25px 0; flex-wrap: wrap; }
+        .btn { background: var(--primary); color: var(--white); padding: 12px 25px; border-radius: 6px; text-decoration: none; font-weight: bold; display: inline-flex; align-items: center; gap: 8px; transition: 0.3s; }
+        .btn:hover { background: var(--secondary); }
+
+        /* Sekcje */
+        section { background: var(--white); padding: 30px; border-radius: 12px; margin-bottom: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        section h3 { color: var(--primary); border-bottom: 2px solid var(--bg-light); padding-bottom: 10px; margin-bottom: 20px; font-size: 20px; }
+        
+        /* Usługi i Opinie */
+        ul { list-style: none; text-align: left; display: inline-block; width: 100%; max-width: 500px; }
+        li { padding: 10px 0; border-bottom: 1px solid #eee; font-size: 16px; }
+        .review { font-style: italic; background: var(--bg-light); padding: 15px; border-radius: 6px; margin-bottom: 10px; text-align: left; }
+    </style>
+</head>
+<body>
+
+    <!-- Przełącznik języków -->
+    <div class="lang-bar">
+        <button onclick="changeLang('de')">DE</button>
+        <button onclick="changeLang('pl')">PL</button>
+        <button onclick="changeLang('ru')">RU</button>
+    </div>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo">Mann für alle Fälle</div>
+            <nav>
+                <a href="#services" id="m-services">Leistungen</a>
+                <a href="#about" id="m-about">Über mich</a>
+                <a href="#gallery" id="m-gallery">Galerie</a>
+                <a href="#reviews" id="m-reviews">Bewertungen</a>
+                <a href="#contact" id="m-contact">Kontakt</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Hero ze zdjęciem -->
+        <div class="hero">
+            <img src="Screenshot_20261007_025241_WhatsApp.jpg" alt="Radek Kocko" class="profile-img">
+            <h1 id="t-title">MANN FÜR ALLE FÄLLE</h1>
+            <h2 id="t-subtitle">Radek Kocko - Ihr zuverlässiger Allrounder im Alltag</h2>
+            <p id="t-desc">Schnell, sauber und professionell. Ihr Partner für Haus, Garten und Renovierung.</p>
+            
+            <div class="contact-buttons">
+                <a href="tel:015210800492" class="btn">📞 015210800492</a>
+                <a href="mailto:radoslawkocko@aol.com" class="btn" id="btn-mail">✉️ E-Mail senden</a>
+            </div>
+        </div>
+
+        <!-- Usługi -->
+        <section id="services" style="text-align: center;">
+            <h3 id="t-services-title">Unsere Dienstleistungen</h3>
+            <ul>
+                <li>🏠 <span id="t-s1">Alltagsbegleitung & Seniorenhilfe</span></li>
+                <li>🧹 <span id="t-s2">Fensterreinigung & Grundreinigung</span></li>
+                <li>🛠️ <span id="t-s3">Maler- & Spachtelarbeiten</span></li>
+                <li>🪵 <span id="t-s4">Bodenverlegung</span></li>
+                <li>🌿 <span id="t-s5">Montagearbeiten & Gartenpflege</span></li>
+            </ul>
+        </section>
+
+        <!-- O mnie -->
+        <section id="about" style="text-align: left;">
+            <h3 id="t-about-title">Über mich</h3>
+            <p id="t-about-text">Ich biete umfassende handwerkliche und alltägliche Dienstleistungen an. Mit jahrelanger Erfahrung und viel Engagement helfe ich Ihnen bei Ihren Projekten im und um das Haus.</p>
+        </section>
+
+        <!-- Galeria -->
+        <section id="gallery">
+            <h3 id="t-gallery-title">Galerie (Arbeiten)</h3>
+            <p id="t-gallery-text" style="text-align: center; color: #666; padding: 20px;">Hier folgen bald Fotos und Videos meiner abgeschlossenen Projekte.</p>
+        </section>
+
+        <!-- Opinie -->
+        <section id="reviews">
+            <h3 id="t-reviews-title">Kundenbewertungen</h3>
+            <div class="review">"Sehr zuverlässige und saubere Arbeit! Absolut weiterzuempfehlen." – Hans M.</div>
+            <div class="review">"Schnell zur Stelle und top ausgeführt. Gerne wieder!" – Anna K.</div>
+        </section>
+
+        <!-- Kontakt -->
+        <section id="contact" style="text-align: left;">
+            <h3 id="t-contact-title">Kontakt</h3>
+            <p><strong>Telefon:</strong> <a href="tel:015210800492">015210800492</a></p>
+            <p><strong>E-Mail:</strong> <a href="mailto:radoslawkocko@aol.com">radoslawkocko@aol.com</a></p>
+        </section>
+    </div>
+
+    <script>
+        const langData = {
+            de: {
+                mServices: "Leistungen", mAbout: "Über mich", mGallery: "Galerie", mReviews: "Bewertungen", mContact: "Kontakt",
+                title: "MANN FÜR ALLE FÄLLE", subtitle: "Radek Kocko - Ihr zuverlässiger Allrounder im Alltag",
+                desc: "Schnell, sauber und professionell. Ihr Partner für Haus, Garten und Renovierung.",
+                mailBtn: "✉️ E-Mail senden",
+                servicesTitle: "Unsere Dienstleistungen",
+                s1: "Alltagsbegleitung & Seniorenhilfe", s2: "Fensterreinigung & Grundreinigung", s3: "Maler- & Spachtelarbeiten", s4: "Bodenverlegung", s5: "Montagearbeiten & Gartenpflege",
+                aboutTitle: "Über mich", aboutText: "Ich biete umfassende handwerkliche und alltägliche Dienstleistungen an. Mit jahrelanger Erfahrung und viel Engagement helfe ich Ihnen bei Ihren Projekten im und um das Haus.",
+                galleryTitle: "Galerie (Arbeiten)", galleryText: "Hier folgen bald Fotos und Videos meiner abgeschlossenen Projekte.",
+                reviewsTitle: "Kundenbewertungen", contactTitle: "Kontakt"
+            },
+            pl: {
+                mServices: "Usługi", mAbout: "O mnie", mGallery: "Galeria", mReviews: "Opinie", mContact: "Kontakt",
+                title: "MANN FÜR ALLE FÄLLE", subtitle: "Radek Kocko - Twój niezawodny pomocnik na co dzień",
+                desc: "Szybko, czysto i profesjonalnie. Twój partner do prac domowych, ogrodowych i remontowych.",
+                mailBtn: "✉️ Wyślij e-mail",
+                servicesTitle: "Nasze usługi",
+                s1: "Pomoc codzienna i wsparcie dla seniorów", s2: "Mycie okien i sprzątanie gruntowne", s3: "Prace malarskie i szpachlowanie", s4: "Układanie podłóg", s5: "Prace montażowe i pielęgnacja ogrodu",
+                aboutTitle: "O mnie", aboutText: "Oferuję kompleksowe usługi remontowo-budowlane oraz codzienne wsparcie. Dzięki wieloletniemu doświadczeniu pomogę Ci w każdym zadaniu wokół domu.",
+                galleryTitle: "Galeria (Realizacje)", galleryText: "Wkrótce pojawią się tutaj zdjęcia i filmy z ukończonych projektów.",
+                reviewsTitle: "Opinie klientów", contactTitle: "Kontakt"
+            },
+            ru: {
+                mServices: "Услуги", mAbout: "О мне", mGallery: "Галерея", mReviews: "Отзывы", mContact: "Контакты",
+                title: "MANN FÜR ALLE FÄLLE", subtitle: "Радек Коцко - Ваш надежный помощник на каждый день",
+                desc: "Быстро, чисто и профессионально. Ваш партнер по дому, саду и ремонту.",
+                mailBtn: "✉️ Написать email",
+                servicesTitle: "Наши услуги",
+                s1: "Помощь по хозяйству и поддержка пожилых людей", s2: "Мытье окон и генеральная уборка", s3: "Малярные и шпаклевочные работы", s4: "Укладка напольных покрытий", s5: "Монтажные работы и уход за садом",
+                aboutTitle: "О мне", aboutText: "Я предлагаю широкий спектр услуг по дому и ремонtu. С многолетним опытом и преданностью делу помогу вам с любыми проектами.",
+                galleryTitle: "Галерея (Работы)", galleryText: "Скоро здесь появятся фотографии и видео завершенных проектов.",
+                reviewsTitle: "Отзывы клиентов", contactTitle: "Контакты"
+            }
+        };
+
+        function changeLang(lang) {
+            document.getElementById('m-services').innerText = langData[lang].mServices;
+            document.getElementById('m-about').innerText = langData[lang].mAbout;
+            document.getElementById('m-gallery').innerText = langData[lang].mGallery;
+            document.getElementById('m-reviews').innerText = langData[lang].mReviews;
+            document.getElementById('m-contact').innerText = langData[lang].mContact;
+
+            document.getElementById('t-title').innerText = langData[lang].title;
+            document.getElementById('t-subtitle').innerText = langData[lang].subtitle;
+            document.getElementById('t-desc').innerText = langData[lang].desc;
+            document.getElementById('btn-mail').innerText = langData[lang].mailBtn;
+
+            document.getElementById('t-services-title').innerText = langData[lang].servicesTitle;
+            document.getElementById('t-s1').innerText = langData[lang].s1;
+            document.getElementById('t-s2').innerText = langData[lang].s2;
+            document.getElementById('t-s3').innerText = langData[lang].s3;
+            document.getElementById('t-s4').innerText = langData[lang].s4;
+            document.getElementById('t-s5').innerText = langData[lang].s5;
+
+            document.getElementById('t-about-title').innerText = langData[lang].aboutTitle;
+            document.getElementById('t-about-text').innerText = langData[lang].aboutText;
+            document.getElementById('t-gallery-title').innerText = langData[lang].galleryTitle;
+            document.getElementById('t-gallery-text').innerText = langData[lang].galleryText;
+            document.getElementById('t-reviews-title').innerText = langData[lang].reviewsTitle;
+            document.getElementById('t-contact-title').innerText = langData[lang].contactTitle;
+        }
+    </script>
+</body>
+</html>
